@@ -6,9 +6,9 @@ cap = cv2.VideoCapture(0)
 while True:
     ret, frame = cap.read()
     hsv = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-    lower_green = np.array([36, 50, 70])
-    upper_green = np.array([89, 255, 255])
-    mask = cv2.inRange(hsv, lower_green, upper_green)
+    lower_blue = np.array([90, 50, 70])
+    upper_blue = np.array([128, 255, 255])
+    mask = cv2.inRange(hsv, lower_blue, upper_blue)
     contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     for contour in contours:
         x, y, w, h = cv2.boundingRect(contour)
